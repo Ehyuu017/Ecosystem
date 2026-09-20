@@ -525,13 +525,49 @@ h3 {
   grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid rgba(255,255,255,.2);
   border-left: 1px solid rgba(255,255,255,.2);
+  perspective: 1800px;
 }
 
 .effect-card {
-  min-height: 245px;
-  padding: 28px;
+  height: 310px;
   border-right: 1px solid rgba(255,255,255,.2);
   border-bottom: 1px solid rgba(255,255,255,.2);
+  perspective: 1800px;
+  background: rgba(255,255,255,.02);
+}
+
+.effect-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.9s cubic-bezier(.22, 1, .36, 1);
+}
+
+.effect-card:hover .effect-card-inner,
+.effect-card:focus-within .effect-card-inner {
+  transform: rotateY(180deg);
+}
+
+.effect-card-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 28px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.effect-card-front {
+  background: rgba(20, 51, 36, 0.68);
+}
+
+.effect-card-back {
+  background: linear-gradient(135deg, rgba(153, 214, 101, 0.18), rgba(255,255,255,0.06));
+  transform: rotateY(180deg);
+  border-left: 1px solid rgba(255,255,255,.14);
 }
 
 .effect-number {
@@ -552,6 +588,16 @@ h3 {
   color: rgba(255,255,255,.7);
   font-size: 14px;
   line-height: 1.6;
+}
+
+.effect-card-back .effect-number,
+.effect-card-back h3,
+.effect-card-back p {
+  color: #f6f9f5;
+}
+
+.effect-card-back p {
+  color: rgba(255,255,255,.8);
 }
 
 /* =========================
