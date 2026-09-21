@@ -59,13 +59,11 @@ counters.forEach(counter => observer.observe(counter));
    FLIP EFFECT CARDS
 ========================== */
 
-document.addEventListener("DOMContentLoaded", () => {
-  const flipCards = document.querySelectorAll(".effect-card");
+const flipCards = document.querySelectorAll(".effect-card");
 
-  flipCards.forEach(card => {
-    card.addEventListener("click", () => {
-      card.classList.toggle("is-flipped");
-    });
+flipCards.forEach(card => {
+  card.addEventListener("click", () => {
+    card.classList.toggle("is-flipped");
   });
 });
 
